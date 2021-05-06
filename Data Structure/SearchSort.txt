@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+int arr[100];
+
+int BinarySearch(int value )
+{
+    //Implement the binary function here
+
+
+    return -1; // if data is not found in the array
+}
+
+void BubbleSort(){
+
+    //Implement the bubble sort algorithm
+}
+
+void SelectionSort()
+{
+    // Implement the selection sort algorithm
+}
+int main()
+{
+   int n;
+   cout<<"Enter the array size: ";
+   cin>>n;
+
+   cout<<"Enter "<<n<<" elements: ";
+   for(int i=0;i<n;i++)
+   {
+       cin>>arr[i];
+   }
+   cout<<"Before sorting the data: ";
+    for(int i=0;i<n;i++)
+   {
+       cout<<" "<<arr[i];
+   }
+   cout<<endl;
+   //Calling sorting function
+
+   BubbleSort();
+   //SelectionSort();
+    cout<<"After sorting the data: ";
+    for(int i=0;i<n;i++)
+   {
+       cout<<" "<<arr[i];
+   }
+   cout<<endl;
+    int value;
+    cout<<"Enter any value to find in the array :";
+    cin>>value;
+    int res = BinarySearch(value);
+    if(res == -1)cout<<"Value is not found"<<end;
+    else cout<<"Value is found at "<<res<<" index"<<endl;
+
+
+}

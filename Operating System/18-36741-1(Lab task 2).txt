@@ -1,0 +1,162 @@
+                   Name: Hasan MD Imtiaz
+                   ID:18-36741-1
+
+
+1. Write a script that will admit a student to CS course if the following condition is met. If it is not met than a message 'not admitted will be displayed'.
+'Grade in Chemistry in A or grade in Physics is A or age is 18'
+
+**********1********
+
+#!/bin/bash
+echo "Grade in Physics"
+read physics
+echo "Grade in Chemistry"
+read chemistry
+echo "Age"
+read age
+if [ $physics = "A" -o $chemistry = "A" -o $age == 18 ]
+then
+echo "Admit"
+else
+echo "not admitted"
+fi
+
+2. Use a loop to print the odd numbers between 0 and N. N will be a user input.
+
+*******2*******
+
+#!/bin/bash
+read -p 'Enter the last number : ' n
+a=0
+while [ $a -lt n ]
+do
+	rem=$(( $a % 2))
+	if [ $rem -ne 0 ]
+	then
+	echo $a
+	fi
+	a=$(( $a + 1 ))
+done
+
+3. A system will allow user to withdraw a specific amount if the following conditions are met
+a. The withdraw amount is less than the available balance
+b. After withdraw the available balance must be greater than or equal to 500
+
+********3*******
+
+#! /bin/bash
+echo "Enter you balance : "
+read balance
+echo "Enter the amount you want to withdraw : "
+read withdraw
+current=`expr $balance - $withdraw`
+if [ $balance -gt $withdraw ]
+then
+    if [ $current -ge 500 ]
+    then 
+        echo "Withdraw successfull."
+        else
+        echo "You have to keep at least 500tk in your balance"
+    fi
+else   
+echo "Insufficient Balance!"
+fi
+
+4. Write a script that will ask the user to input numbers obtained for Physics, Chemistry, Maths
+and English. Using these marks the system will show the equivalent grades using the
+following grading policy80 or above - A
+ 70 to 79 - B
+ 60 to 69 - C
+ 50 to 59 - D
+ Below 50 - F
+
+******4******
+
+#!/bin/bash
+echo "Physics Marks: "
+read marks
+if [ $marks -ge 80 ]
+then
+echo "A"
+
+elif [ $marks -ge 70 ]
+then
+echo "B"
+
+elif [ $marks -ge 60 ]
+then
+echo "C"
+
+elif [ $marks -ge 50 ]
+then
+echo "D"
+
+else
+echo "F"
+fi
+
+echo "Chemistry Marks: "
+read marks
+if [ $marks -ge 80 ]
+then
+echo "A"
+
+elif [ $marks -ge 70 ]
+then
+echo "B"
+
+elif [ $marks -ge 60 ]
+then
+echo "C"
+
+elif [ $marks -ge 50 ]
+then
+echo "D"
+
+else
+echo "F"
+fi
+
+echo "English Marks: "
+read marks
+if [ $marks -ge 80 ]
+then
+echo "A"
+
+elif [ $marks -ge 70 ]
+then
+echo "B"
+
+elif [ $marks -ge 60 ]
+then
+echo "C"
+
+elif [ $marks -ge 50 ]
+then
+echo "D"
+
+else
+echo "F"
+fi
+
+echo "Math Marks: "
+read marks
+if [ $marks -ge 80 ]
+then
+echo "A"
+
+elif [ $marks -ge 70 ]
+then
+echo "B"
+
+elif [ $marks -ge 60 ]
+then
+echo "C"
+
+elif [ $marks -ge 50 ]
+then
+echo "D"
+
+else
+echo "F"
+fi

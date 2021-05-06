@@ -1,0 +1,446 @@
+1.
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+
+MAIN PROC
+    
+    MOV CX,10
+    MOV AH,2
+    MOV DL,'*'
+    
+    TOP:
+    
+    INT 21H
+    LOOP TOP
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
+
+2.
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+MAIN PROC
+    
+    MOV DX,0
+    MOV AH,1
+    INT 21H
+    
+   WHILE:
+    CMP AL,0DH
+    JE EXIT 
+    INC DX
+    INT 21H
+    JMP WHILE
+    
+   EXIT:
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
+
+4.
+
+.MODEL SMALL
+.STACK 100H
+.DATA 
+
+    A DB 'PRESS FLOOR NO: $'
+    B DB 0DH,0AH,'YOU HAVE REACHED FLOOR: $'
+     
+.CODE
+MAIN PROC
+    
+   MOV AX,@DATA
+   MOV DS,AX 
+   
+  TOP:
+   
+   LEA DX,A
+   MOV AH,9
+   INT 21H
+   
+   MOV AH,1
+   INT 21H
+   
+   MOV BL,AL
+   
+  
+   
+   LEA DX,B
+   MOV AH,9
+   INT 21H
+   
+   MOV DL,BL
+   MOV AH,2
+   INT 21H
+   
+   MOV DL,0AH
+   MOV AH,2
+   INT 21H
+   MOV DL,0DH
+   INT 21H 
+   
+   LOOP TOP
+    
+    MAIN ENDP
+END MAIN
+
+5.
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+ 
+
+.CODE
+
+MAIN PROC
+ 
+    MOV DL,'?'
+    MOV AH,2
+    INT 21H
+ 
+    MOV AH,1      
+                  
+    INT 21H      
+    MOV BL,AL    
+                  
+    INT 21H       
+    MOV CL,AL
+ 
+    MOV AH,2     
+    MOV DL,0AH    
+    INT 21H       
+    MOV DL,0DH    
+    INT 21H       
+                  
+    CMP BL,CL
+         
+    JLE FIRST
+         
+    MOV AH,2      
+    MOV DL,CL     
+    INT 21H
+           
+    ;JMP END_ 
+         
+    FIRST:        
+        MOV AH,2  
+        MOV DL,BL 
+        INT 21H   
+                  
+    END_:
+ 
+    MOV AH,4CH   
+    INT 21H     
+    
+       
+    MAIN ENDP
+END MAIN
+
+6.
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+
+MAIN PROC
+
+    MOV BL,80H
+    MOV CL,0
+    
+    TOP:
+        CMP CL,10
+        JE NEWLINE
+     
+        INC CL
+     
+        MOV AH,2
+        MOV DL,BL
+        INT 21H
+        INC BL
+     
+        CMP BL,0FFH
+        JE EXIT
+     
+        JMP TOP
+        
+   NEWLINE:
+    
+        MOV AH,2
+        MOV DL,0AH
+        INT 21H
+        MOV DL,0DH
+        INT 21H
+        MOV CL,0
+        JMP TOP
+   EXIT:
+ 
+    MOV AH,4CH
+    INT 21H
+         
+    MAIN ENDP
+END MAIN
+
+7.
+
+.model small
+.stack 100h
+.data
+msg1 db 10,13,'ENTER A HEX DIGIT:$'
+msg2 db 10,13,'IN DECIMAL IS IT:$'
+msg3 db 10,13,'DO YOU WANT TO DO IT AGAIN?$'
+msg4 db 10,13,'ILLEGAL CHARACTER- ENTER 0-9 OR A-F:$'
+
+
+.code   
+
+
+again:
+
+   mov ax,@data
+   mov ds,ax
+   lea dx,msg1
+   mov ah,9
+   int 21h
+   
+   mov ah,1
+   int 21h
+   
+   mov bl,al 
+   
+   
+   jmp go
+   
+    
+   
+  
+   
+go:   
+     
+  
+
+   cmp bl,'9'
+   ja hex
+   jb num
+   je num
+   
+       
+       
+       
+       
+ hex:
+
+    cmp bl,'F'
+    ja illegal  
+    
+    
+   lea dx,msg2 
+   mov ah,9
+   int 21h
+   
+    mov dl,49d
+    mov ah,2
+    int 21h
+    
+    sub bl,17d
+    mov dl,bl
+    mov ah,2
+    int 21h
+    
+    jmp inp
+    
+     
+    
+    
+ inp:
+    
+    lea dx,msg3
+    mov ah,9
+    int 21h
+    
+    mov ah,1
+    int 21h
+    
+    mov cl,al
+    cmp cl,'y'
+    je again
+    cmp cl,'Y'
+    je again
+    jmp exit
+    
+   
+ num:
+   
+   cmp bl,'0'
+   jb illegal
+   
+   lea dx,msg2 
+   mov ah,9
+   int 21h 
+   
+    
+   mov dl,bl
+   mov ah,2
+   int 21h
+   
+   jmp inp
+   
+   
+   
+   
+ illegal:
+   
+       lea dx,msg4
+       mov ah,9
+       int 21h
+       
+       mov ah,1
+       int 21h
+       
+       mov bl,al 
+       
+       jmp go
+       
+   
+
+exit:
+
+      mov ah,4ch
+      int 21h
+     
+8.
+
+.model small
+.stack 100h
+.data
+msg1 db 10,13,'ENTER A HEX DIGIT:$'
+msg2 db 10,13,'IN DECIMAL IS IT:$'
+msg3 db 10,13,'DO YOU WANT TO DO IT AGAIN?$'
+msg4 db 10,13,'ILLEGAL CHARACTER- ENTER 0-9 OR A-F:$'
+
+
+.code   
+
+
+again:
+
+   mov ax,@data
+   mov ds,ax
+   lea dx,msg1
+   mov ah,9
+   int 21h
+   
+   mov ah,1
+   int 21h
+   
+   mov bl,al 
+   
+   
+   jmp go
+   
+    
+   
+  
+   
+go:   
+     
+  
+
+   cmp bl,'9'
+   ja hex
+   jb num
+   je num
+   
+       
+       
+       
+       
+ hex:
+
+    cmp bl,'F'
+    ja illegal
+    
+    ;jmp exit  
+    
+    
+   lea dx,msg2 
+   mov ah,9
+   int 21h
+   
+    mov dl,49d
+    mov ah,2
+    int 21h
+    
+    sub bl,17d
+    mov dl,bl
+    mov ah,2
+    int 21h
+    
+    jmp inp
+    
+     
+    
+    
+ inp:
+    
+    lea dx,msg3
+    mov ah,9
+    int 21h
+    
+    mov ah,1
+    int 21h
+    
+    mov cl,al
+    cmp cl,'y'
+    je again
+    cmp cl,'Y'
+    je again
+    jmp exit
+    
+   
+ num:
+   
+   cmp bl,'0'
+   jb illegal
+   
+   lea dx,msg2 
+   mov ah,9
+   int 21h 
+   
+    
+   mov dl,bl
+   mov ah,2
+   int 21h
+   
+   jmp inp
+   
+   
+   
+   
+ illegal:
+   
+       lea dx,msg4
+       mov ah,9
+       int 21h
+       
+       mov ah,1
+       int 21h
+       
+       mov bl,al 
+       
+       jmp go
+       
+   
+
+exit:
+
+      mov ah,4ch
+      int 21h
+     

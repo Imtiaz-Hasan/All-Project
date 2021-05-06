@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+class Student{
+
+private:
+	char* name;
+	char* id;
+	char* gender;
+	float cgpa;
+	static int studentCount;
+
+public:
+
+	Student(){
+
+		this->name = new char[30];
+		cout<<"From default constructor"<<endl;
+		studentCount++;
+	}
+	Student(char* name, char* id, char* gender, float cgpa){
+
+		this->name = new char[30];
+		//this->name = name;
+		strcpy(this->name,name);
+		this->id = id;
+		this->gender = gender;
+		this->cgpa = cgpa;
+		studentCount++;
+
+		cout<<"From parameterized constructor"<<endl;
+	}
+
+	void print(){
+
+			cout<<"Name is: "<<name<<endl;
+			cout<<"ID is: "<<id<<endl;
+			cout<<"Gender is: "<<gender<<endl;
+			cout<<"CGPA is: "<<cgpa<<endl;
+	}
+	static int getCount(){
+
+		return studentCount;
+	}
+	~Student(){
+
+		cout<<"From destructor"<<endl;
+		//delete []name;
+	}
+
+};
+int Student::studentCount =0;
+
+int main(){
+
+	Student stu1;
+	Student stu2("John", "15-26548-2","Male", 3.9f);
+	Student stu3;
+	//stu2.print();
+	cout<<Student::getCount()<<endl;
+
+    return 0;
+}

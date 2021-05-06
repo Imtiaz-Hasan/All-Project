@@ -1,0 +1,32 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+void main()
+{
+     char arr[100];
+	 cin>>arr;
+	 int length = strlen(arr)-1; 
+	                                                
+	 bool x = true;
+
+	 for(int i = 0; i< length; i++){
+	 
+		 if(arr[i] != arr[length]){                     
+			
+			 x = false;
+			 break;
+		 }
+		 length--;
+	 }
+	 if(x){
+		
+		 cout<<"pallindrome"<<endl;
+	 }
+	 else{
+	 
+		cout<<"Not Pallindrome"<<endl;
+	 }
+
+
+}

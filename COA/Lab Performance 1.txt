@@ -1,0 +1,428 @@
+                                                     NUMBER:1
+.MODEL SMALL
+.STACK 100H
+.DATA 
+A DB 'WELCOME TO MY CALCULATOR!! $'
+B DB 'PLEASE USER ENTER DIGIT 1: $'         
+C DB 'PLEASE USER ENTER DIGIT 2: $'
+D DB 'OUTPUT: $'
+
+NUM DB ?
+ 
+E DB 'THANK YOU FOR USING MY CALCULATOR $'
+F DB 'HAVE A GOOD DAY $'
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    LEA DX,A  
+    MOV AH,9
+    INT 21H
+    
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,B
+    MOV AH,9
+    INT 21H 
+    MOV AH,1
+    INT 21H
+    
+    
+    MOV BH,AL
+     
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,C
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1
+    INT 21H
+    
+    
+    MOV CL,AL
+
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,D
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+
+    ADD BH,CL
+    SUB BH,30H
+    MOV NUM,BH 
+    MOV DL,NUM
+    MOV AH,2
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,E
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,F
+    MOV AH,9
+    INT 21H 
+    
+    MOV AH,4CH
+    INT 21H
+    
+    
+    MAIN ENDP
+END MAIN
+
+
+
+
+                                                          NUMBER:2
+.MODEL SMALL
+.STACK 100H
+.DATA 
+A DB 'WELCOME TO MY CALCULATOR!! $'
+B DB 'PLEASE USER ENTER DIGIT 1: $'         
+C DB 'PLEASE USER ENTER DIGIT 2: $' 
+G DB 'PLEASE USER ENTER DIGIT 3: $'
+D DB 'OUTPUT: $'
+NUM DB ?
+ 
+E DB 'THANK YOU FOR USING MY CALCULATOR $'
+F DB 'HAVE A GOOD DAY $'
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    LEA DX,A  
+    MOV AH,9
+    INT 21H
+    
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,B
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1
+    INT 21H
+    MOV BL,AL 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,C
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1
+    INT 21H
+    MOV BH,AL
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,G
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1
+    INT 21H
+    MOV CL,AL
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,D
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H                        
+    
+    
+    ADD BL,BH
+    SUB BL,48
+    MOV CH,BL
+    ADD CH,CL
+    
+    SUB CH,48
+    
+    MOV NUM,CH 
+    MOV DL,NUM
+    MOV AH,2
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,E
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,F
+    MOV AH,9
+    INT 21H 
+    
+    INT 21H
+    
+    
+    MAIN ENDP
+END MAIN
+
+
+
+
+
+                                                         NUMBER:3
+.MODEL SMALL
+.STACK 100H
+.DATA 
+A DB 'WELCOME TO MY CALCULATOR!! $'
+B DB 'PLEASE USER ENTER DIGIT 1: $'         
+C DB 'PLEASE USER ENTER DIGIT 2: $'
+D DB 'OUTPUT: $' 
+E DB 'THANK YOU FOR USING MY CALCULATOR $'
+F DB 'HAVE A GOOD DAY $'
+MSG DB ?
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    LEA DX,A  
+    MOV AH,9
+    INT 21H
+    
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,B
+    MOV AH,9
+    INT 21H
+     
+    MOV AH,1
+    INT 21H
+    MOV BH,AL 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,C
+    MOV AH,9
+    INT 21H 
+    
+    MOV AH,1
+    INT 21H
+    MOV CH,AL
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,D
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    
+    SUB BH,CH
+    ADD BH,30H
+    MOV MSG,BH 
+    MOV DL,MSG
+    MOV AH,2
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,E
+    MOV AH,9
+    INT 21H 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H 
+     
+    MOV DL,0DH
+    MOV AH,2
+    INT 21H
+    
+    LEA DX,F
+    MOV AH,9
+    INT 21H 
+    
+    MOV AH,4CH
+    INT 21H
+    
+    
+    MAIN ENDP
+END MAIN
+
+
+
+
+
+                                                      NUMBER:4
+.MODEL SMALL
+.STACK 100H
+.DATA
+
+SQUARE DB '*****', 0DH,0AH,'$'
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    LEA DX,SQUARE
+    MOV AH,9
+    
+    
+    INT 21H
+    INT 21H
+    INT 21H
+    INT 21H
+    INT 21H
+    
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP 
+END MAIN
+
+
+
+
+
+
+                                  NUMBER:5
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    MOV AL,3
+    MOV BL,4
+    ADD AL,BL
+    
+    
+    MOV DL,AL
+    MOV AH, 2
+    INT 21H
+    
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP 
+END MAIN

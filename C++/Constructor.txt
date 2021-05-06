@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Student{
+
+private:
+
+	string name;
+	string id;
+	string gender; 
+	float cgpa;
+
+public:
+	Student(){
+		
+		cgpa = 0.0;
+		cout<<"Default Constructor"<<endl;
+	}
+	Student(string name, string id, string gender, float cgpa = 0.0){
+
+		this->name = name;
+		this->id = id;
+		this->gender = gender;
+		this->cgpa = cgpa;
+		cout<<"Parameterized Constructor"<<endl;
+	}
+	void setCgpa(float cgpa){
+	
+			this->cgpa = cgpa;
+	}
+
+	void print(){
+	
+		cout<<"Name: "<<name<<endl;
+		cout<<"ID: "<<id<<endl;
+		cout<<"Gender: "<<gender<<endl;
+		cout<<"CGPA: "<<cgpa<<endl;
+	}
+
+};
+
+void main(){
+
+	
+	Student stu1 ("John","15-15248-2","Male");
+
+	stu1.print();
+	stu1.setCgpa(3.9);
+	stu1.print();
+
+}

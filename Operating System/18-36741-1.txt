@@ -1,0 +1,30 @@
+logname: no login name
+[root@localhost ~]# bc
+bc 1.07.1
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Software
+ Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+1+2
+3
+[root@localhost ~]# history
+    1  uname -n
+    2  uname -r
+    3  cal
+    4  cal -3
+    5  cal -s
+    6  cal -m
+    7  date
+    8  date +%m
+    9  date +%h%m
+   10  date +%h
+   11  date +%H
+   12  date +%M
+   13  date +%r
+   14  date +%d
+   15  who
+   16  who am i
+   17  logname
+   18  bc
+   19  history
+[root@localhost ~]#

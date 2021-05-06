@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+class Vehicle{
+
+private:
+	char* vehicleType;
+	int numberOfWheels;
+	char* color;
+	float speed;
+
+public:
+	void setVehicleType(char* vc);
+	void setNumberOfWheels(int n);
+	void setColor(char* c);
+	void setSpeed(float s);
+	void showDetails();
+	float calculateDistanceCovered(float time);
+};
+
+void Vehicle::setVehicleType(char* vc){
+
+	vehicleType = vc;
+}
+void Vehicle::setNumberOfWheels(int n){
+
+	numberOfWheels = n;
+}
+void Vehicle::setColor(char* c){
+	
+	color =c;
+}
+void Vehicle::setSpeed(float s){
+	
+	speed =s;
+}
+float Vehicle::calculateDistanceCovered(float time){
+	
+	float distance;
+	distance = speed * time;
+
+	return distance;
+}
+
+
+void Vehicle::showDetails(){
+	
+	cout<<"Vehicle type is: "<<vehicleType<<endl;
+	cout<<"Number of wheeks are: "<<numberOfWheels<<endl;
+	cout<<"Color is: "<<color<<endl;
+	cout<<"Speed is: "<<speed<<" km/h"<<endl;
+}
+
+void main(){
+
+	Vehicle v1;
+
+	v1.setVehicleType("Car");
+	v1.setNumberOfWheels(4);
+	v1.setColor("Pearl White");
+	v1.setSpeed(70.00);
+	v1.showDetails();
+	cout<<"Total distance covered: "<<v1.calculateDistanceCovered(2)<<" km."<<endl;
+}

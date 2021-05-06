@@ -1,0 +1,99 @@
+#include<iostream>
+
+using namespace std;
+
+class Bird
+{
+    private :
+
+    string color;
+    float weight;
+
+    public :
+
+    void setColor(string c)
+    {
+        color = c;
+    }
+
+    string getColor()
+    {
+        return color;
+    }
+
+    void setWeight(float w)
+    {
+        weight = w;
+    }
+
+    float getWeight()
+    {
+        return weight;
+    }
+};
+
+class Duck : public Bird
+{
+    public :
+     swim()
+    {
+     return 0;
+    }
+};
+
+class Sparrow : public Bird
+{
+    public :
+     fly()
+    {
+     return 0;
+    }
+};
+
+class Ostrich : public Bird
+{
+    public :
+     jump()
+    {
+     return 0;
+    }
+};
+
+int main()
+{
+    Duck d;
+    d.setColor("black");
+    d.setWeight(5);
+    d.swim();
+
+    Sparrow s;
+    s.setColor("brown");
+    s.setWeight(8);
+    s.fly();
+
+    Ostrich o;
+    o.setColor("red");
+    o.setWeight(10);
+    o.jump();
+
+    cout << "===== Characteristics of a Bird =====" << endl;
+    cout << "DUCK" << endl;
+    cout << "color :" << d.getColor() <<endl;
+    cout << "weight :" << d.getWeight() << endl;
+    cout << "A Duck can Swim" << d.swim() << endl;
+    cout << "SPARROW" << endl;
+    cout << "color :" << s.getColor() << endl;
+    cout << "weight :" << s.getWeight() << endl;
+    cout << "A Sparrow can Fly" << s.fly() << endl;
+    cout << "OSTRICH" << endl;
+    cout << "color :" << o.getColor() << endl;
+    cout << "weight :" << o.getWeight() << endl;
+    cout << "A Ostrich can Jump" << o.jump() << endl;
+
+    d.getColor();
+    d.getWeight();
+    s.getColor();
+    s.getWeight();
+    o.getColor();
+    o.getWeight();
+}

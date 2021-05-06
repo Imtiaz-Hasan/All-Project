@@ -1,0 +1,318 @@
+1.
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+MSG DB 'DO NOTHING$'
+MAIN PROC
+    MOV AL,11111110B
+    CMP AL,0
+    JGE DO_NOTHING
+    
+    
+    NEG AL
+    ADD AL,48
+    MOV DL,AL
+    MOV AH,2
+    INT 21H    
+    JMP END_CASE
+    
+    DO_NOTHING:
+    LEA DX,MSG
+    MOV AH,9
+    INT 21H
+    JMP END_CASE
+    
+    
+    
+    END_CASE:
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP
+END MAIN
+
+2.
+
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+                A DB   'THE NUMBER IS EQUAL$'
+                ;B DB   'THE NUMBER IS NOT EQAUL$'
+
+.CODE
+
+MAIN    PROC 
+
+        MOV  AX,@DATA
+        MOV  DS,AX 
+
+        MOV  AH,1
+        INT  21H
+
+        MOV  DL,AL
+
+        INT 21H
+
+        CMP AL,DL
+        ;JNE NOT_EQUAL
+
+        MOV AH,9
+        LEA DX,A
+        INT 21H
+        JMP EXIT
+
+;NOT_EQUAL:
+        
+        ;MOV AH,9
+        ;LEA DX,B
+        ;INT 21H
+
+EXIT:
+        MOV AH,4CH
+        INT 21H
+
+MAIN    ENDP
+        END  MAIN
+
+
+3.
+
+.MODEL SMALL
+.STACK 100H
+ 
+.DATA
+ VOWEL DB 0DH,0AH,'VOWEL$'
+ ;CONSONANT DB 0DH,0AH,'CONSONANT$'
+  
+.CODE
+MAIN PROC
+  
+ MOV AX,@DATA
+ MOV DS,AX
+  
+ MOV AH,1
+ INT 21H
+ CMP AL,'A'
+ JE VL
+ CMP AL,'E'
+ JE VL
+ CMP AL,'I'
+ JE VL
+ CMP AL,'O'
+ JE VL
+ CMP AL,'U'
+ JE VL
+ CMP AL,'a'
+ JE VL
+ CMP AL,'e'
+ JE VL
+ CMP AL,'i'
+ JE VL
+ CMP AL,'o'
+ JE VL
+ CMP AL,'u'
+ JE VL
+  ;LEA DX,CONSONANT
+  ;MOV AH,9
+  ;INT 21H
+  JMP EXIT
+   
+ VL:
+  LEA DX,VOWEL
+  MOV AH,9
+  INT 21H
+   
+ EXIT:
+  MOV AH,4CH
+  INT 21H
+ MAIN ENDP
+END MAIN
+
+4.
+
+.MODEL SMALL
+.STACK 100H
+ 
+.DATA
+ VOWEL DB 0DH,0AH,'VOWEL$'
+ CONSONANT DB 0DH,0AH,'CONSONANT$'
+  
+.CODE
+MAIN PROC
+  
+ MOV AX,@DATA
+ MOV DS,AX
+  
+ MOV AH,1
+ INT 21H
+ CMP AL,'A'
+ JE VL
+ CMP AL,'E'
+ JE VL
+ CMP AL,'I'
+ JE VL
+ CMP AL,'O'
+ JE VL
+ CMP AL,'U'
+ JE VL
+ CMP AL,'a'
+ JE VL
+ CMP AL,'e'
+ JE VL
+ CMP AL,'i'
+ JE VL
+ CMP AL,'o'
+ JE VL
+ CMP AL,'u'
+ JE VL
+  LEA DX,CONSONANT
+  MOV AH,9
+  INT 21H
+  JMP EXIT
+   
+ VL:
+  LEA DX,VOWEL
+  MOV AH,9
+  INT 21H
+   
+ EXIT:
+  MOV AH,4CH
+  INT 21H
+ MAIN ENDP
+END MAIN
+
+5.
+
+.MODEL SMALL
+ .STACK 100H
+
+ .DATA
+   A  DB  'Enter : $'
+   B  DB  'LETTER $'
+   B  DB  'NUMBER $'     
+
+ .CODE
+   MAIN PROC
+     MOV AX, @DATA               
+     MOV DS, AX
+
+     LEA DX, A             
+     MOV AH, 9
+     INT 21H
+
+     MOV AH, 1                   
+     INT 21H
+
+     MOV BL, AL                  
+
+     MOV DL,0AH
+     MOV AH,2
+     INT 21H
+     
+     MOV DL,0DH
+     INT 21H               
+
+     LEA DX, B              
+     MOV AH, 9
+     INT 21H
+
+     MOV AH, 2                    
+     MOV DL, BL
+     INT 21H
+
+     MOV AH, 4CH                  
+     INT 21H
+   MAIN ENDP
+
+6.
+
+ .model small
+.stack 100h
+.data 
+
+a db ' zero $'
+b db ' positive $'
+c db ' negative $'     
+
+.code
+main proc 
+    mov ax,@data
+    mov ds,ax
+    
+    mov ah,1
+    int 21h
+
+
+
+cmp al,'0'     
+je l1      
+jg l2      
+jl l3        
+
+l1:
+lea dx,a
+mov ah,9
+int 21h 
+
+jmp exit
+
+l2:
+lea dx,b
+mov ah,9
+int 21h 
+
+jmp exit
+       
+l3:
+lea dx,c
+mov ah,9
+int 21h 
+
+jmp exit      
+    
+exit:
+mov ah,4ch
+int 21h
+
+main endp
+end main
+
+7.
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+ MAIN PROC
+ MOV CX,AX
+ CMP BX,CX
+ JLE NEXT
+ MOV CX,BX
+ 
+ NEXT:
+ MOV AH,4CH
+ INT 21H
+MAIN ENDP
+  END MAIN
+
+8.
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+ MAIN PROC 
+    
+      MOV CX,AX
+      CMP BX,CX
+      JBE NEXT  
+      MOV CX,BX
+ 
+ NEXT:
+ 
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+ END MAIN

@@ -1,0 +1,34 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC 
+    
+ 
+    
+ MOV CX,AX
+ 
+ CMP BX,DL
+ 
+ JLE NEXT
+ 
+ MOV AH,2
+ INT 21H
+ 
+ 
+ JMP EXIT
+ 
+ NEXT:
+ 
+ MOV CX,BX
+ 
+ MOV DL,CX
+ MOV AH,2
+ INT 21H
+     
+      
+ EXIT:
+ MOV AH,4CH
+ INT 21H
+MAIN ENDP
+  END MAIN

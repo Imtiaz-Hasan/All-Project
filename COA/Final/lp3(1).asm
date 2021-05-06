@@ -1,0 +1,32 @@
+.MODEL SMALL
+.STACK 100H
+.CODE
+MSG DB 'DO NOTHING$'
+MAIN PROC
+    MOV AL,11111110B
+    CMP AL,0
+    JGE DO_NOTHING
+    
+    
+    NEG AL
+    ADD AL,48
+    MOV DL,AL
+    MOV AH,2
+    INT 21H    
+    JMP END_CASE
+    
+    DO_NOTHING:
+    LEA DX,MSG
+    MOV AH,9
+    INT 21H
+    JMP END_CASE
+    
+    
+    
+    END_CASE:
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP
+END MAIN
+

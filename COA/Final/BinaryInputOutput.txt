@@ -1,0 +1,48 @@
+.MODEL SMALL
+.STACK 100H
+.CODE
+   MAIN PROC
+   XOR BX,BX
+   MOV AH,1
+   INT 21H
+   WHILE_:
+   CMP AL,0DH
+   JE END_WHILE
+   AND AL,0FH
+   SHL BX,1
+   OR BL,AL  
+   MOV AH,1
+   INT 21H
+   JMP WHILE_   
+   
+    END_WHILE: 
+    MOV AH,2
+       MOV DL,0DH
+       INT 21H
+       MOV DL,0AH
+       INT 21H 
+       MOV CX,16
+       MOV AH,2
+   
+   OUTPUT:
+   SHL BX,1
+   JC ONE
+   JNC ZERO
+   
+   ONE:
+   MOV DL,'1'
+   JMP DISPLAY
+   
+   ZERO:
+   MOV DL,'0'
+   JMP DISPLAY
+   
+   DISPLAY:
+   MOV AH,2
+   INT 21H  
+   LOOP OUTPUT
+   
+  
+   
+    MAIN ENDP
+ END MAIN

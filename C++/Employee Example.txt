@@ -1,0 +1,84 @@
+#include<iostream>
+using namespace std;
+
+class Employee{
+private:
+	char* name;
+	char* id;
+	char* designation;
+	int salary;
+	char* companyName;
+public:
+	void setName(char* name){
+		this->name =name;
+	}
+	void setId(char* id){
+		this->id =id;
+	}
+	void setDesignation(char* n){
+		designation =n;
+	}
+	void setSalary(int salary){
+		this->salary =salary;
+	}
+	void setCompanyName(char* n){
+		companyName =n;
+	}
+	char* getName(){
+	
+		return name;
+	}
+	char* getId(){
+	
+		return id;
+	}
+	char* getDesignation(){
+	
+		return designation;
+	}
+	int getSalary(){
+	
+		return salary;
+	}
+	char* getCompanyName(){
+	
+		return companyName;
+	}
+
+	void showInfo(){
+	
+		cout<<"Name: "<<name<<endl;
+		cout<<"ID: "<<id<<endl;
+		cout<<"Designation: "<<designation<<endl;
+		cout<<"Salary: "<<salary<<endl;
+		cout<<"Company Name: "<<companyName<<endl;
+	}
+};
+
+void main(){
+
+	Employee emp1,emp2;
+	emp1.setName("John");
+	emp1.setId("123");
+	emp1.setDesignation("Manager");
+	emp1.setSalary(100000);
+	emp1.setCompanyName("Datasoft");
+
+	emp2.setName("John");
+	emp2.setId("135");
+	emp2.setDesignation("Assistant Manager");
+	emp2.setSalary(50000);
+	emp2.setCompanyName("Datasoft");
+
+	//emp2.showInfo();
+
+
+	if(emp1.getSalary()>emp2.getSalary()){
+	
+		emp1.showInfo();
+	}
+	else{
+		
+		emp2.showInfo();
+	}
+}

@@ -1,0 +1,78 @@
+#include <iostream>
+
+using namespace std;
+int Queue[100];
+int front,rear;
+
+bool IsEmpty()
+{
+    // Write the necessary code
+   return true; // If the queue is empty
+   return false; // if the queue is not empty
+}
+bool IsFull()
+{
+       // Write the necessary code
+   return true; // If the queue is full
+   return false; // if the queue is not full
+
+}
+void EnQueue(int value)
+{
+    // Add the value to the queue
+     // Write the necessary code
+}
+
+int DeQueue()
+{
+    // Remove the element from the queue
+     // Write the necessary code
+    int value;
+    return value;
+
+}
+
+int FrontValue()
+{
+    // Show the front value
+     // Write the necessary code
+    int value;
+    return value;
+}
+void ShowQueue()
+{
+    // Show all the elements in the queue
+     // Write the necessary code
+}
+int main()
+{
+    int n, a;
+    while(true)
+    {
+
+        cout<<"Enter 1 for Enqueue, 2 for Dequeue, 3 for frontValue and 4 for showQueue operation: ";
+        cin>>n;
+        if(n == 1)
+        {
+            cout<<"Enter the value: ";
+            cin>>a;
+            EnQueue(a);
+        }
+        else if(n == 2)
+        {
+            cout<<"Dequeue value is: "<< DeQueue()<<endl;
+        }
+        else if( n == 3)
+        {
+             cout<<"Front value is: "<< FrontValue()<<endl;
+        }
+        else if(n == 4)
+        {
+            ShowQueue();
+        }
+        else break;
+
+    }
+
+
+}

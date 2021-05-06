@@ -1,0 +1,478 @@
+                              NUMBER:1
+
+
+
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+a DB 'Welcome User!! $'
+b DB 'Please User Enter Letter 1: $'        
+c DB 'Please User Enter Letter 2: $'
+d DB 'Please User Enter Letter 3: $'
+e DB 'Output: $'
+.CODE
+MAIN PROC
+    mov ax,@data
+    mov ds,ax
+   
+    lea dx,a  
+    mov ah,9
+    int 21h
+   
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,b
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+    mov bh,al
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,c
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+    mov cl,al
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,d
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+    mov bl,al  
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+   
+    lea dx,e
+    mov ah,9
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    mov dl,bh
+    mov ah,2
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h  
+   
+    mov dl,cl
+    mov ah,2
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    mov dl,bl
+    mov ah,2
+    int 21h
+   
+   
+    mov ah,4ch
+    int 21h
+   
+   
+    main endp
+end main
+
+
+
+
+
+                             NUMBER:2
+
+
+
+
+.model small
+.stack 100h
+.data
+a db 'Welcome To My Calculator!! $'
+b db 'Please User Enter The Number 5: $'        
+c db 'Twos Complement Of 5: $'
+d db 'Twos Complement Of Twos Complement Of 5: $'
+e db 'Thank You For Using My Calculator $'
+f db 'Have a good day $'
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+   
+    lea dx,a  
+    mov ah,9
+    int 21h
+   
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,b
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,c
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+    int 21h
+   
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,d
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h  
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+   
+    lea dx,e
+    mov ah,9
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,f
+    mov ah,9
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    mov ah,4ch
+    int 21h
+   
+   
+    main endp
+end main
+
+
+
+                                  NUMBER:3
+
+
+
+.model small
+.stack 100h
+.data
+a db 'Welcome To My Calculator!! $'
+b db 'Please User Enter A Hex Digit(A-F): $'        
+c db 'In Decimal is: $'
+d db 'Thank You For Using My Calculator $'
+e db 'Have a Good Day $'
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+   
+    lea dx,a  
+    mov ah,9
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+   
+    lea dx,b
+    mov ah,9
+    int 21h
+    mov ah,1
+    int 21h
+    mov bl,al
+    sub bl,17
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,c
+    mov ah,9
+    int 21h
+    
+    mov dl,0ah
+    mov ah,2
+    int 21h
+    mov dl,0dh
+    int 21h
+
+    mov dl,49
+    mov ah,2
+    int 21h
+    
+    mov dl,bl
+    mov ah,2
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+    lea dx,d
+    mov ah,9
+    int 21h
+   
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+   
+    lea dx,e
+    mov ah,9
+    int 21h
+   
+    mov dl,0ah
+    mov ah,2
+    int 21h
+     
+    mov dl,0dh
+    mov ah,2
+    int 21h
+   
+   
+   
+    mov ah,4ch
+    int 21h
+   
+   
+    main endp
+end main
+
+
+
+
+
+                               NUMBER:4
+
+
+
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    
+       MOV AH,1
+       INT 21H
+       MOV BH,AL
+       SUB BH,32
+       
+       MOV DL,BH
+       MOV AH,2
+       INT 21H
+    
+    
+    
+    
+    
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
+
+
+
+
+                                                 NUMBER:5
+
+
+
+
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    
+       MOV AH,1
+       INT 21H 
+       MOV BH,AL
+       ADD BH,32
+       
+       MOV DL,BH
+       MOV AH,2
+       INT 21H
+    
+    
+    
+    
+    
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
+
+
+
+
+
+                                          NUMBER:6
+
+
+
+
+
+.model small
+.stack 100h
+.data
+a db '*** $'  
+b db '*$'
+MSG DB ?
+.code
+main proc
+    mov ax,@data
+    mov ds,ax
+   
+    lea dx,a  
+    mov ah,9
+    int 21h
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H
+    
+    MOV DL,0DH
+    INT 21H
+    
+    lea dx,b  
+    mov ah,9
+    int 21h
+    
+    MOV AH,1
+    INT 21H
+    MOV BH,AL
+    
+    MOV DL,BH
+    MOV AH,2
+   
+    lea dx,b  
+    mov ah,9
+    int 21h 
+    
+    MOV DL,0AH
+    MOV AH,2
+    INT 21H
+    
+    MOV DL,0DH
+    INT 21H
+    
+    LEA DX,A
+    MOV AH,9
+    INT 21H
+   
+   
+    mov ah,4ch
+    int 21h
+   
+    main endp
+end main

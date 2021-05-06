@@ -1,0 +1,22 @@
+.MODEL SMALL
+.STACK 100H
+.CODE
+MAIN PROC
+    MOV AH,2
+   MOV DL,'3'
+INT 21H
+MOV AH,2
+MOV DL,'4'
+    INT 21H
+   MAIN ENDP
+END MAIN
+
+
+
+
+
+
+        MOV AH1 INPUT
+        MOV AH9 STRING
+         ;(COMMENT)
+        INT 21H(EXICUTE)

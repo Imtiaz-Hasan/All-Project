@@ -1,0 +1,8 @@
+D:\Lesson\9th Semister\Calculator\Calculator\bin\Debug\Calculator.exe.config
+D:\Lesson\9th Semister\Calculator\Calculator\bin\Debug\Calculator.exe
+D:\Lesson\9th Semister\Calculator\Calculator\bin\Debug\Calculator.pdb
+D:\Lesson\9th Semister\Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+D:\Lesson\9th Semister\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\Lesson\9th Semister\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+D:\Lesson\9th Semister\Calculator\Calculator\obj\Debug\Calculator.exe
+D:\Lesson\9th Semister\Calculator\Calculator\obj\Debug\Calculator.pdb
